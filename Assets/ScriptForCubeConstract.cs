@@ -8,6 +8,8 @@ public class ScriptForCubeConstract : MonoBehaviour
     public bool Third = false;
     public bool Four = false;
     public bool Five = false;
+    public bool Six = false;
+    public bool Seven = false;
     public int ButtonsActivatedNumber = 0;
     public int HP = 3;
     public GameObject Cube;
@@ -91,7 +93,41 @@ public class ScriptForCubeConstract : MonoBehaviour
                 {
                     break;
                 }
-                
+            case "6":
+                {
+                    if (Six == false)
+                    {
+                        Six = true;
+                        ButtonsActivatedNumber++;
+                        break;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            default:
+                {
+                    break;
+                }
+            case "7":
+                {
+                    if (Seven == false)
+                    {
+                        Seven = true;
+                        ButtonsActivatedNumber++;
+                        break;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            default:
+                {
+                    break;
+                }
+
         }
     }
 
