@@ -19,7 +19,6 @@ public class ScriptForCubeConstract : MonoBehaviour
     {
         animator = Cube.GetComponent<Animator>();
     }
-
     private void OnTriggerEnter(Collider other)
     {
         switch (other.tag)
@@ -127,7 +126,6 @@ public class ScriptForCubeConstract : MonoBehaviour
                 {
                     break;
                 }
-
         }
     }
 
@@ -167,8 +165,6 @@ public class ScriptForCubeConstract : MonoBehaviour
             Four = false;
             Five = false;
         }
-       
-
         if ( HP == 0 )
         { 
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
