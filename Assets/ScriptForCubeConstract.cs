@@ -88,10 +88,6 @@ public class ScriptForCubeConstract : MonoBehaviour
                         break;
                     }
                 }
-            default:
-                {
-                    break;
-                }
             case "6":
                 {
                     if (Six == false)
@@ -104,10 +100,6 @@ public class ScriptForCubeConstract : MonoBehaviour
                     {
                         break;
                     }
-                }
-            default:
-                {
-                    break;
                 }
             case "7":
                 {
