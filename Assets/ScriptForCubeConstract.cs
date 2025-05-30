@@ -157,9 +157,6 @@ public class ScriptForCubeConstract : MonoBehaviour
             Four = false;
             Five = false;
         }
-        if ( HP == 0 )
-        { 
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
-        }
+      
     }
 }
