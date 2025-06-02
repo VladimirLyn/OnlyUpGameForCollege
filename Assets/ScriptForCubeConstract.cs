@@ -14,7 +14,9 @@ public class ScriptForCubeConstract : MonoBehaviour
     public int HP = 3;
     public GameObject Cube;
     Animator animator;
-    bool win = false;   
+    bool win = false;
+    public Material mat;
+    public Material mat1;
     private void Start()
     {
         animator = Cube.GetComponent<Animator>();
@@ -27,12 +29,14 @@ public class ScriptForCubeConstract : MonoBehaviour
                 {
                     if (First == false)
                     {
+                        other.gameObject.GetComponent<Renderer>().material = mat;
                         First = true;
                         ButtonsActivatedNumber++;
                         break;
                     }
                     else
                     {
+                        other.gameObject.GetComponent<Renderer>().material = mat1;
                         break;
                     }
                 }
@@ -40,12 +44,13 @@ public class ScriptForCubeConstract : MonoBehaviour
                 {
                     if (Second == false)
                     {
+                        other.gameObject.GetComponent<Renderer>().material = mat;
                         Second = true;
                         ButtonsActivatedNumber++;
                         break;
                     }
                     else
-                    {
+                    {other.gameObject.GetComponent<Renderer>().material = mat1;
                         break;
                     }
                 }
@@ -53,12 +58,13 @@ public class ScriptForCubeConstract : MonoBehaviour
                 {
                     if (Third == false)
                     {
+                        other.gameObject.GetComponent<Renderer>().material = mat;
                         Third = true;
                         ButtonsActivatedNumber++;
                         break;
                     }
                     else
-                    {
+                    { other.gameObject.GetComponent<Renderer>().material = mat1;
                         break;
                     }
                 }
@@ -66,12 +72,13 @@ public class ScriptForCubeConstract : MonoBehaviour
                 {
                     if (Four == false)
                     {
+                        other.gameObject.GetComponent<Renderer>().material = mat;
                         Four = true;
                         ButtonsActivatedNumber++;
                         break;
                     }
                     else
-                    {
+                    {other.gameObject.GetComponent<Renderer>().material = mat1;
                         break;
                     }
                 }
@@ -79,12 +86,13 @@ public class ScriptForCubeConstract : MonoBehaviour
                 {
                     if (Five == false)
                     {
+                        other.gameObject.GetComponent<Renderer>().material = mat;
                         Five = true;
                         ButtonsActivatedNumber++;
                         break;
                     }
                     else
-                    {
+                    {other.gameObject.GetComponent<Renderer>().material = mat1;
                         break;
                     }
                 }
@@ -92,12 +100,13 @@ public class ScriptForCubeConstract : MonoBehaviour
                 {
                     if (Six == false)
                     {
+                        other.gameObject.GetComponent<Renderer>().material = mat;
                         Six = true;
                         ButtonsActivatedNumber++;
                         break;
                     }
                     else
-                    {
+                    {other.gameObject.GetComponent<Renderer>().material = mat1;
                         break;
                     }
                 }
@@ -105,12 +114,14 @@ public class ScriptForCubeConstract : MonoBehaviour
                 {
                     if (Seven == false)
                     {
+                        other.gameObject.GetComponent<Renderer>().material = mat;
                         Seven = true;
                         ButtonsActivatedNumber++;
                         break;
                     }
                     else
                     {
+                        other.gameObject.GetComponent<Renderer>().material = mat1;
                         break;
                     }
                 }
@@ -138,7 +149,6 @@ public class ScriptForCubeConstract : MonoBehaviour
             else
             {
                 Debug.Log("Nope");
-                HP--;
                 ButtonsActivatedNumber = 0;
             }
             First = false;
@@ -149,7 +159,6 @@ public class ScriptForCubeConstract : MonoBehaviour
         }
         else if ( ButtonsActivatedNumber > 3 )
         {
-            HP--;
             ButtonsActivatedNumber = 0;
             First = false;
             Second = false;
