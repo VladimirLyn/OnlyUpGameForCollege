@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
 
 public class ScriptForCubeConstract : MonoBehaviour
@@ -17,10 +19,15 @@ public class ScriptForCubeConstract : MonoBehaviour
     bool win = false;
     public Material mat;
     public Material mat1;
+    public GameObject Action;
+    public GameObject Menu;
+    bool action = false;
+
     private void Start()
     {
         animator = Cube.GetComponent<Animator>();
     }
+    
     private void OnTriggerEnter(Collider other)
     {
         switch (other.tag)
@@ -132,8 +139,51 @@ public class ScriptForCubeConstract : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Finish")
+        {
+            Action.SetActive(true);
+            
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Finish")
+        {
+            Action.SetActive(false);
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (Menu.activeInHierarchy == false)
+            {
+                Menu.SetActive(true);
+                Cursor.lockState = CursorLockMode.None;
+            }
+            else
+            {
+                
+                Cursor.lockState = CursorLockMode.Locked;
+                Menu.SetActive(false);
+            }
+        }
+        if (Action.activeInHierarchy)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+        }
+    }
+
     private void FixedUpdate()
     {
+       
         if (win == true)
         {
             HP = 100;
@@ -167,5 +217,10 @@ public class ScriptForCubeConstract : MonoBehaviour
             Five = false;
         }
       
+    }
+
+    public  void Exit()
+    {
+        Application.Quit();
     }
 }
