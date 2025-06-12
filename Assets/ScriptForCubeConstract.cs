@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
@@ -12,8 +14,8 @@ public class ScriptForCubeConstract : MonoBehaviour
     public bool Five = false;
     public bool Six = false;
     public bool Seven = false;
+    public GameObject[] cubes;
     public int ButtonsActivatedNumber = 0;
-    public int HP = 3;
     public GameObject Cube;
     Animator animator;
     bool win = false;
@@ -22,12 +24,16 @@ public class ScriptForCubeConstract : MonoBehaviour
     public GameObject Action;
     public GameObject Menu;
     bool action = false;
+    public GameObject Image;
 
     private void Start()
     {
         animator = Cube.GetComponent<Animator>();
     }
     
+    
+    
+
     private void OnTriggerEnter(Collider other)
     {
         switch (other.tag)
@@ -37,13 +43,14 @@ public class ScriptForCubeConstract : MonoBehaviour
                     if (First == false)
                     {
                         other.gameObject.GetComponent<Renderer>().material = mat;
+                        
                         First = true;
                         ButtonsActivatedNumber++;
                         break;
                     }
                     else
                     {
-                        other.gameObject.GetComponent<Renderer>().material = mat1;
+                      
                         break;
                     }
                 }
@@ -57,7 +64,7 @@ public class ScriptForCubeConstract : MonoBehaviour
                         break;
                     }
                     else
-                    {other.gameObject.GetComponent<Renderer>().material = mat1;
+                    {
                         break;
                     }
                 }
@@ -71,7 +78,7 @@ public class ScriptForCubeConstract : MonoBehaviour
                         break;
                     }
                     else
-                    { other.gameObject.GetComponent<Renderer>().material = mat1;
+                    {
                         break;
                     }
                 }
@@ -85,7 +92,7 @@ public class ScriptForCubeConstract : MonoBehaviour
                         break;
                     }
                     else
-                    {other.gameObject.GetComponent<Renderer>().material = mat1;
+                    {
                         break;
                     }
                 }
@@ -99,7 +106,7 @@ public class ScriptForCubeConstract : MonoBehaviour
                         break;
                     }
                     else
-                    {other.gameObject.GetComponent<Renderer>().material = mat1;
+                    {
                         break;
                     }
                 }
@@ -113,7 +120,7 @@ public class ScriptForCubeConstract : MonoBehaviour
                         break;
                     }
                     else
-                    {other.gameObject.GetComponent<Renderer>().material = mat1;
+                    {
                         break;
                     }
                 }
@@ -128,7 +135,7 @@ public class ScriptForCubeConstract : MonoBehaviour
                     }
                     else
                     {
-                        other.gameObject.GetComponent<Renderer>().material = mat1;
+                        
                         break;
                     }
                 }
@@ -145,6 +152,26 @@ public class ScriptForCubeConstract : MonoBehaviour
         {
             Action.SetActive(true);
             
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                }
+            
+        }
+
+        if (other.tag == "Respawn")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        if (other.tag == "Form")
+        {
+            Action.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                Cursor.lockState = CursorLockMode.None;
+            }
         }
     }
 
@@ -172,22 +199,12 @@ public class ScriptForCubeConstract : MonoBehaviour
                 Menu.SetActive(false);
             }
         }
-        if (Action.activeInHierarchy)
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            }
-        }
+        
     }
 
     private void FixedUpdate()
     {
        
-        if (win == true)
-        {
-            HP = 100;
-        }
         if (ButtonsActivatedNumber == 3)
         {
             if (Second == true && Third == true && Five == true)
@@ -200,21 +217,29 @@ public class ScriptForCubeConstract : MonoBehaviour
             {
                 Debug.Log("Nope");
                 ButtonsActivatedNumber = 0;
+                StartCoroutine(False());
             }
             First = false;
             Second = false;
             Third = false;
             Four = false;
             Five = false;
+            Six = false;
+            Seven = false;
+           
         }
         else if ( ButtonsActivatedNumber > 3 )
         {
-            ButtonsActivatedNumber = 0;
+            Debug.Log("Nope");
+                ButtonsActivatedNumber = 0;
+                StartCoroutine(False());
             First = false;
             Second = false;
             Third = false;
             Four = false;
             Five = false;
+            Six = false;
+            Seven = false;
         }
       
     }
@@ -222,5 +247,18 @@ public class ScriptForCubeConstract : MonoBehaviour
     public  void Exit()
     {
         Application.Quit();
+    }
+
+    public IEnumerator False()
+    {
+        Image.SetActive(true);
+        foreach (var V in cubes)
+        {
+            V.gameObject.GetComponent<Renderer>().material = mat1;
+        }
+        yield return new WaitForSeconds(1f);
+        Image.SetActive(false);
+       
+        StopCoroutine(False());
     }
 }
