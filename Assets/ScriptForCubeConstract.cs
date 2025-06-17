@@ -13,6 +13,20 @@ public class ScriptForCubeConstract : MonoBehaviour
     public bool Four = false;
     public bool Five = false;
     public bool Six = false;
+ 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public bool Seven = false;
     public GameObject[] cubes;
     public int ButtonsActivatedNumber = 0;
