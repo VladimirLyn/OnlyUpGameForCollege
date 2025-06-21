@@ -13,20 +13,6 @@ public class ScriptForCubeConstract : MonoBehaviour
     public bool Four = false;
     public bool Five = false;
     public bool Six = false;
- 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     public bool Seven = false;
     public GameObject[] cubes;
     public int ButtonsActivatedNumber = 0;
@@ -44,9 +30,6 @@ public class ScriptForCubeConstract : MonoBehaviour
     {
         animator = Cube.GetComponent<Animator>();
     }
-    
-    
-    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -270,7 +253,7 @@ public class ScriptForCubeConstract : MonoBehaviour
         {
             V.gameObject.GetComponent<Renderer>().material = mat1;
         }
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         Image.SetActive(false);
        
         StopCoroutine(False());
