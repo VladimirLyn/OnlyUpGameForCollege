@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5015620990996924561
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 9
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -156,8 +143,8 @@ Material:
     - _ZWrite: 1
     - __dirty: 0
     m_Colors:
-    - _BaseColor: {r: 0.14315462, g: 0.8301887, b: 0, a: 1}
-    - _Color: {r: 0.14315459, g: 0.8301887, b: 0, a: 1}
+    - _BaseColor: {r: 0.3887354, g: 0.8207547, b: 0.14324492, a: 1}
+    - _Color: {r: 0.38873538, g: 0.8207547, b: 0.14324489, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FLOWERSCOLOR: {r: 4, g: 0, b: 0, a: 0}
     - _GroundColor: {r: 0.12978768, g: 0.49056602, b: 0.09487361, a: 1}
@@ -165,3 +152,16 @@ Material:
     - _TopColor: {r: 0.3505436, g: 0.5754717, b: 0.3338822, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
+--- !u!114 &1269765769032138646
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 9
